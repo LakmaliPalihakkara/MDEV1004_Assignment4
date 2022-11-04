@@ -6,6 +6,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const routes = require('./routes.js');
 require('dotenv').config();
 // const config = require('./config')
+app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
@@ -39,6 +40,7 @@ passport.use(new FacebookStrategy({
 ));
 
 app.use('/', routes);
+
 
 const port = 3000;
 
