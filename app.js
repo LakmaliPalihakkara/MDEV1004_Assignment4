@@ -5,7 +5,6 @@ const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const routes = require('./routes.js');
 require('dotenv').config();
-// const config = require('./config')
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
@@ -28,15 +27,12 @@ passport.deserializeUser(function (obj, cb) {
 });
 
 passport.use(new FacebookStrategy({
-    // clientID: config.facebookAuth.clientID,
-    // clientSecret: config.facebookAuth.clientSecret,
-    // callbackURL: config.facebookAuth.callbackURL
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.SECRET,
-    callbackURL: process.env.CALLBACK_URL
-  }, function (accessToken, refreshToken, profile, done) {
-    return done(null, profile);
-  }
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.SECRET,
+  callbackURL: process.env.CALLBACK_URL
+}, function (accessToken, refreshToken, profile, done) {
+  return done(null, profile);
+}
 ));
 
 app.use('/', routes);

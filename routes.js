@@ -3,12 +3,12 @@ const express = require('express');
 var router = express.Router();
 
 router.get('/', function (req, res) {
-  res.render('pages/login.ejs'); // load the index.ejs file
+  res.render('pages/login.ejs');
 });
 
 router.get('/profile', isLoggedIn, function (req, res) {
   res.render('pages/profile.ejs', {
-    user: req.user // get the user out of session and pass to template
+    user: req.user
   });
 });
 
@@ -26,14 +26,14 @@ router.get('/auth/facebook/callback',
     failureRedirect: '/error'
   }));
 
-  router.get("/logout", function(req, res, next) {
-    req.logout(function(err) {
-      if (err) {
-        return next(err);
-      }
-      res.redirect("/");
-    });
+router.get("/logout", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
   });
+});
 
 
 function isLoggedIn(req, res, next) {
