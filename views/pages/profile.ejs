@@ -3,7 +3,7 @@
 <html>
 
 <head>  
-  <title>Facebook Node Authentication</title>
+  <title>Social Life</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
@@ -18,8 +18,7 @@
 <body>
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Node Authentication</a>
-      <a href="/logout" class="right">Logout</a>
+      <a href="/logout" class="right">Sign Out</a>
     </div>
   </nav>
   <div class="section no-pad-bot" id="index-banner">
@@ -34,7 +33,6 @@
             </div>
             <div class="card-action">
               <h5><b><%= user.displayName %></b></h5>
-              <p><strong>Facebook id</strong>: <%= user.id %></p>
             </div>
           </div>
         </div>
